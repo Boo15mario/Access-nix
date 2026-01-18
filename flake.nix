@@ -6,12 +6,14 @@
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
+    treefmt-nix.url = "github:numtide/treefmt-nix";
   };
   outputs =
     inputs@{
       self,
       nixpkgs,
       flake-parts,
+      treefmt-nix,
       ...
     }:
     let
@@ -33,6 +35,9 @@
         lib' = lib.recursiveUpdate lib ourLib;
       in
       {
+        imports = [
+          treefmt-nix.flakeModule
+        ];
         flake = {
           lib = ourLib;
           overlays = lib'.importDirRecursive overlaysDir;
@@ -57,39 +62,13 @@
             };
             packages = lib.filterAttrs (_: lib.isDerivation) ourPackages;
 
-            # formatter = pkgs.treefmt.withConfig {
-            #   runtimeInputs = with pkgs; [
-            #     nixfmt-rfc-style
-            #     black
-            #     yamlfmt
-            #     markdownlint-cli2
-            #   ];
-
-            #   settings = {
-            #     on-unmatched = "info";
-            #     tree-root-file = "flake.nix";
-
-            #     formatter = {
-            #       nixfmt = {
-            #         command = "nixfmt";
-            #         includes = [ "*.nix" ];
-            #       };
-            #       black = {
-            #         command = "black";
-            #         includes = [ "*.py" ];
-            #       };
-            #       yamlfmt = {
-            #         command = "yamlfmt";
-            #         includes = [ "*.yml" ];
-            #       };
-            #       markdownlint = {
-            #         command = "markdownlint-cli2";
-            #         options = [ "--fix" ];
-            #         includes = [ "*.md" ];
-            #       };
-            #     };
-            #   };
-            # };
+            treefmt = {
+              projectRootFile = "flake.nix";
+              programs.nixfmt.enable = true;
+              programs.black.enable = true;
+              programs.yamlfmt.enable = true;
+              programs.mdformat.enable = true;
+            };
           };
       }
     );
