@@ -44,9 +44,11 @@ rustPlatform.buildRustPackage rec {
     (makeDesktopItem {
       name = "access-launcher";
       desktopName = "Access Launcher";
+      comment = meta.description;
       exec = "access-launcher";
       icon = "access-launcher";
       categories = [ "Utility" ];
+      startupNotify = true;
     })
   ];
 

@@ -44,9 +44,11 @@ rustPlatform.buildRustPackage rec {
     (makeDesktopItem {
       name = "universal-startup-manager";
       desktopName = "Universal Startup Manager";
+      comment = meta.description;
       exec = "universal-startup-manager";
       icon = "universal-startup-manager";
       categories = [ "Utility" ];
+      startupNotify = true;
     })
   ];
 
