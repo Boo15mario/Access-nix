@@ -10,7 +10,7 @@
 
 rustPlatform.buildRustPackage rec {
   pname = "access-launcher";
-  version = "0-unstable-2026-01-20";
+  version = "0.4.1";
 
   src = fetchFromGitHub {
     owner = "boo15mario";

@@ -10,13 +10,13 @@
 
 rustPlatform.buildRustPackage rec {
   pname = "universal-startup-manager";
-  version = "0-unstable-2026-01-16";
+  version = "1.1.1";
 
   src = fetchFromGitHub {
     owner = "boo15mario";
     repo = "universal-startup-manager";
-    rev = "a1f030e321b4dff38d8e14e3e200d81a223a9315";
-    hash = "sha256-uQ0VorRU02af5cxMODRWusokqWG9JbwTNstlFv3RIJ4=";
+    rev = "main";
+    hash = "sha256-nrXMQQNrrXuVs+uzP17OPwdgcS97bQa1fdoW56Np6Ac=";
   };
 
   cargoHash = "sha256-Dr27mzPiSmkeTnmHTDgDnkmThq+AkZ6KFHoFf2645uk=";
