@@ -13,3 +13,10 @@ nix-channel --add https://github.com/boo15mario/access-nix/archive/nix-channel.t
 nix-channel --update
 nix-env -iA access-nix.access-launcher
 ```
+
+## Remove the channel
+
+```bash
+nix-channel --remove access-nix
+nix-channel --update
+```
