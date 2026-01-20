@@ -10,13 +10,13 @@
 
 rustPlatform.buildRustPackage rec {
   pname = "access-launcher";
-  version = "0-unstable-2026-01-16";
+  version = "0-unstable-2026-01-20";
 
   src = fetchFromGitHub {
     owner = "boo15mario";
     repo = "access-launcher";
-    rev = "b8e047528c2d91ae6bbc6f31031d1e67908d8f6c";
-    hash = "sha256-ScpC6uOZ06UTzyI8Zkp1qsPnG2zllklM5KefkbJdwiA=";
+    rev = "e5451cff9b323ce4c6767247371af4e4f7a77cfc";
+    hash = "sha256-8q4clUppasAXpMDskhZd11hIwPKkz9siSk7MgW2yxN8=";
   };
 
   cargoHash = "sha256-Yri+MWl28/N36MPweGQBOBZSmyC3L89anXe5kwITIxY=";
