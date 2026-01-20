@@ -4,6 +4,8 @@
 , pkg-config
 , gtk4
 , wrapGAppsHook4
+, copyDesktopItems
+, makeDesktopItem
 }:
 
 rustPlatform.buildRustPackage rec {
@@ -22,10 +24,30 @@ rustPlatform.buildRustPackage rec {
   nativeBuildInputs = [
     pkg-config
     wrapGAppsHook4
+    copyDesktopItems
   ];
 
   buildInputs = [
     gtk4
+  ];
+
+  postInstall = ''
+    mkdir -p $out/share/icons/hicolor/512x512/apps
+    if [ -f assets/icon.png ]; then
+      install -Dm644 assets/icon.png $out/share/icons/hicolor/512x512/apps/${pname}.png
+    elif [ -f icon.png ]; then
+      install -Dm644 icon.png $out/share/icons/hicolor/512x512/apps/${pname}.png
+    fi
+  '';
+
+  desktopItems = [
+    (makeDesktopItem {
+      name = "access-launcher";
+      desktopName = "Access Launcher";
+      exec = "access-launcher";
+      icon = "access-launcher";
+      categories = [ "Utility" ];
+    })
   ];
 
   meta = with lib; {
