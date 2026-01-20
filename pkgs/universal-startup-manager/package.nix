@@ -33,10 +33,13 @@ rustPlatform.buildRustPackage rec {
 
   postInstall = ''
     mkdir -p $out/share/icons/hicolor/512x512/apps
+    mkdir -p $out/share/icons/hicolor/scalable/apps
     if [ -f assets/icon.png ]; then
       install -Dm644 assets/icon.png $out/share/icons/hicolor/512x512/apps/${pname}.png
     elif [ -f icon.png ]; then
       install -Dm644 icon.png $out/share/icons/hicolor/512x512/apps/${pname}.png
+    else
+      install -Dm644 ${./icon.svg} $out/share/icons/hicolor/scalable/apps/${pname}.svg
     fi
   '';
 
