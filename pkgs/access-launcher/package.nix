@@ -10,16 +10,16 @@
 
 rustPlatform.buildRustPackage rec {
   pname = "access-launcher";
-  version = "0.4.1";
+  version = "0.4.2";
 
   src = fetchFromGitHub {
     owner = "boo15mario";
     repo = "access-launcher";
-    rev = "e5451cff9b323ce4c6767247371af4e4f7a77cfc";
-    hash = "sha256-8q4clUppasAXpMDskhZd11hIwPKkz9siSk7MgW2yxN8=";
+    rev = "248a4d2b67d99233d229d99a76e60cc2655fa271";
+    hash = "sha256-IsIv4wbIUdKumrchfAtPO6s2MfAT1EDDOZ8uA9Pdjto=";
   };
 
-  cargoHash = "sha256-Yri+MWl28/N36MPweGQBOBZSmyC3L89anXe5kwITIxY=";
+  cargoHash = "sha256-XIHPkNEn7fIOdONoohYOjk3EeEnQF5xFsWD9Z6VM560=";
 
   nativeBuildInputs = [
     pkg-config
