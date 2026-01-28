@@ -10,16 +10,16 @@
 
 rustPlatform.buildRustPackage rec {
   pname = "universal-startup-manager";
-  version = "1.1.2";
+  version = "1.2.0-unstable-2026-01-28";
 
   src = fetchFromGitHub {
     owner = "boo15mario";
     repo = "universal-startup-manager";
-    rev = "5bb199b7fa8e78a429552fbad1a0ff6bb6def1f6";
-    hash = "sha256-nrXMQQNrrXuVs+uzP17OPwdgcS97bQa1fdoW56Np6Ac=";
+    rev = "cdce08e6f5056abe9a42cd2f9040399aefa63468";
+    hash = "sha256-cvYomkDAeSID+r4rwzuPpKeu/nnxL2rkC1RAv+X6R2g=";
   };
 
-  cargoHash = "sha256-Dr27mzPiSmkeTnmHTDgDnkmThq+AkZ6KFHoFf2645uk=";
+  cargoHash = "sha256-k8TNU/w8Ghi2SwE01hWG1tBuDNxWFhlAAkhCkdjp3xk=";
 
   nativeBuildInputs = [
     pkg-config
@@ -38,6 +38,8 @@ rustPlatform.buildRustPackage rec {
       install -Dm644 assets/icon.png $out/share/icons/hicolor/512x512/apps/${pname}.png
     elif [ -f icon.png ]; then
       install -Dm644 icon.png $out/share/icons/hicolor/512x512/apps/${pname}.png
+    elif [ -f universal-startup-manager.svg ]; then
+      install -Dm644 universal-startup-manager.svg $out/share/icons/hicolor/scalable/apps/${pname}.svg
     else
       install -Dm644 ${./icon.svg} $out/share/icons/hicolor/scalable/apps/${pname}.svg
     fi
