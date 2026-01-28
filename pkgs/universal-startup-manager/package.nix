@@ -10,16 +10,16 @@
 
 rustPlatform.buildRustPackage rec {
   pname = "universal-startup-manager";
-  version = "1.2.0-unstable-2026-01-28";
+  version = "1.2.1";
 
   src = fetchFromGitHub {
     owner = "boo15mario";
     repo = "universal-startup-manager";
-    rev = "cdce08e6f5056abe9a42cd2f9040399aefa63468";
-    hash = "sha256-cvYomkDAeSID+r4rwzuPpKeu/nnxL2rkC1RAv+X6R2g=";
+    rev = "ba977557f34814793b31a080ea381ae100705e7a";
+    hash = "sha256-iW7469vUpCipFVJW6wH4fQ+xqTD2zXppT3NvdjZQtLM=";
   };
 
-  cargoHash = "sha256-k8TNU/w8Ghi2SwE01hWG1tBuDNxWFhlAAkhCkdjp3xk=";
+  cargoHash = "sha256-rWyDh5/VtQhp+dVNXhndyHJfinSVan30WeYwpqcFiS8=";
 
   nativeBuildInputs = [
     pkg-config
