@@ -14,8 +14,7 @@ stdenv.mkDerivation {
   installPhase = ''
     mkdir -p $out/share/plymouth/themes
     cp -r access-os-boot $out/share/plymouth/themes/
-    # Fix paths in .plymouth file if necessary (usually they are relative to the theme directory)
-  ';
+  '';
 
   meta = with lib; {
     description = "Official Plymouth boot splash theme for access-OS.";
