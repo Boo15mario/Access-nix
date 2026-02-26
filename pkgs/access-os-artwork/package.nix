@@ -1,19 +1,24 @@
-{ stdenv, lib }:
+{ stdenv, lib, fetchFromGitHub }:
 
 stdenv.mkDerivation {
   pname = "access-os-artwork";
   version = "1.0";
 
-  src = ./assets;
+  src = fetchFromGitHub {
+    owner = "Boo15mario";
+    repo = "access-os-artwork";
+    rev = "main";
+    sha256 = "0x5a5dhhd08sc0a1ap4f87iav7y9bdjyhzg67hzlnmw7jrxl88c2";
+  };
 
   installPhase = '
     # Install Wallpapers
     mkdir -p $out/share/backgrounds/access-os
-    cp wallpaper-dark.png $out/share/backgrounds/access-os/
+    cp assets/wallpaper-dark.png $out/share/backgrounds/access-os/
 
     # Install Logo
     mkdir -p $out/share/icons/hicolor/512x512/apps
-    cp logo.png $out/share/icons/hicolor/512x512/apps/access-os-logo.png
+    cp assets/logo.png $out/share/icons/hicolor/512x512/apps/access-os-logo.png
 
     # Create GNOME background XML (so it shows up in settings)
     mkdir -p $out/share/gnome-background-properties
