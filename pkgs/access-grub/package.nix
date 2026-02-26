@@ -11,10 +11,10 @@ stdenv.mkDerivation {
     sha256 = "1y6yvkvvak6s22iiyqrbyg60z8r2xh7nqnq83qhfas7y0x7k7ank";
   };
 
-  installPhase = '
+  installPhase = ''
     mkdir -p $out
     cp -r ./red-white-grub/* $out/
-  ';
+  '' ;
 
   meta = with lib; {
     description = "A red and white high-contrast GRUB theme for accessibility.";
