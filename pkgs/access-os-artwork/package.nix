@@ -8,7 +8,7 @@ stdenv.mkDerivation {
     owner = "Boo15mario";
     repo = "access-os-artwork";
     rev = "main";
-    sha256 = "0x5a5dhhd08sc0a1ap4f87iav7y9bdjyhzg67hzlnmw7jrxl88c2";
+    sha256 = "0kzaiqh3d6sj6ds4w8lnzyn6vk9xn9vfha59w6chlcf39i2b93fw";
   };
 
   installPhase = '
