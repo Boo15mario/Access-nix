@@ -11,7 +11,7 @@ stdenv.mkDerivation {
     sha256 = "0s4dc970ikw445hxa2p4da25g77rrb4lp4ix6wzivigqfd0mywvz";
   };
 
-  installPhase = '
+  installPhase = ''
     mkdir -p $out/share/plymouth/themes
     cp -r access-os-boot $out/share/plymouth/themes/
     # Fix paths in .plymouth file if necessary (usually they are relative to the theme directory)
