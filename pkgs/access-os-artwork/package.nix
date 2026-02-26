@@ -11,7 +11,7 @@ stdenv.mkDerivation {
     sha256 = "0kzaiqh3d6sj6ds4w8lnzyn6vk9xn9vfha59w6chlcf39i2b93fw";
   };
 
-  installPhase = '
+  installPhase = ''
     # Install Wallpapers
     mkdir -p $out/share/backgrounds/access-os
     cp assets/wallpaper-dark.png $out/share/backgrounds/access-os/
@@ -36,7 +36,7 @@ stdenv.mkDerivation {
   </wallpaper>
 </wallpapers>
 EOF
-  ';
+  '' ;
 
   meta = with lib; {
     description = "Official branding, wallpapers, and icons for access-OS.";
